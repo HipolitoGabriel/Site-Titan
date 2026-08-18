@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titan Control</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="formCadastrar">
+        <strong>
+            <p>CADASTRAR NOVO FUNCIONÁRIO</p>
+        </strong>
+        <form class="group1">
+            <div class="group2">
+                <strong><label for="name">Nome Completo</label></strong>
+                <input type="text" placeholder="Digite o nome completo" id="name">
+            </div>
+            <div class="group2">
+                <strong><label for="cpf">CPF</label></strong>
+                <input type="tel" placeholder="000.000.000-00" id="cpf">
+            </div>
+            <div class="group2">
+                <strong><label for="senha">Senha</label></strong>
+                <input type="password" placeholder="Digite a senha" id="senha">
+            </div>
+            <strong><label for="status">Status</label></strong>
+            <label class="switch">
+                <input type="checkbox" id="status" checked>
+                <span class="slider"></span>
+            </label>
+            <strong><label for="admin">Admin</label></strong>
+            <label class="switch">
+                <input type="checkbox" id="admin">
+                <span class="slider"></span>
+            </label>
+            <button type="submit" id="btnpost">SALVAR</button>
+        </form>
+    </div>
+    <div id="textbox"></div>
+    <div id="tablebox">
+        <thead>
+        <table>
+            <tr>
+                <th id="id_user">ID</th>
+                <th id="nome_user">Nome</th>
+                <th id="cpf_user">CPF</th>
+                <th id="status_user">Status</th>
+                <th id="mod_user">Ações</th>
+            </tr>
+        </table>
+    <tbody>
+        <table id="body_infos"></table>
+    </tbody>
+    </div>   
+    <script src="script.js"></script>
+</body>
+</html>
+

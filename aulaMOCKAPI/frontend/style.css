@@ -1,0 +1,126 @@
+:root{
+    --border: rgb(143, 143, 143);
+    --dark: rgb(10, 10, 10);
+    --gray: rgb(250, 250, 250);
+}
+body{
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+}
+#formCadastrar{
+    align-items: flex-end;
+    gap: 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 0px 0px 15px 15px;
+    flex-wrap: wrap;
+    margin-left: auto;
+}
+.group1{
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+.group2{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+#formCadastrar input{
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    padding: 10px;
+}
+input:placeholder-shown{
+    font-size: 15px;
+}
+button{
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: var(--dark);
+    color: white;
+}
+table{
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+th{
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: var(--gray);
+    border-radius: 5px;
+}
+td{
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 5px;
+}
+tr{
+    border-bottom: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+/* From Uiverse.io by arghyaBiswasDev */ 
+/* The switch - the box around the slider */
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    border: 1px solid #adb5bd;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 20px;
+    left: 0.27em;
+    bottom: 0.25em;
+    background-color: #adb5bd;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color:rgb(191, 145, 84);
+    border: 1px solid rgb(191, 145, 84);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px rgb(191, 145, 84);
+}
+
+input:checked + .slider:before {
+    transform: translateX(1.4em);
+    background-color: #fff;
+}
