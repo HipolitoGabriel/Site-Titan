@@ -1,0 +1,60 @@
+body {
+    min-height: 100vh;        
+    display: flex;
+    flex-direction: column;   
+    align-items: center;      
+    justify-content: center;  
+}
+.container{
+    background-color: rgb(242, 242, 242);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width: 700px;
+    border: 1px solid rgb(143, 143, 143);
+    border-radius: 5px;
+}
+#style{
+    color: rgb(173, 135, 81);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+input{
+    height: 32px;
+    border: 1px solid rgb(143, 143, 143);
+    border-radius: 5px;
+    width: 550px;
+}
+button{
+    height: 32px;
+    width: 550px;
+    padding: 10px 10px 10px 10px;
+    background-color: rgb(10, 10, 10);
+    color: white;
+    border: 1px solid rgb(143, 143, 143);
+    border-radius: 5px;
+}
+#inputlogin{
+    background-image: url(../imagens/incones/user-logo.png);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 30px;
+    height: 32px;
+
+}
+#inputpassword{
+    background-image: url(../imagens/incones/password-logo.png);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 30px;
+}
+p{
+    justify-content: center;
+}
