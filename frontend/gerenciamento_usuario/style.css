@@ -1,24 +1,15 @@
-:root{
-    --border: rgb(143, 143, 143);
-    --dark: rgb(10, 10, 10);
-    --gray: rgb(250, 250, 250);
-}
-body{
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-    font-variation-settings:
-    "wdth" 100;
-}
-#formCadastrar{
+.formCadastrar{
     align-items: flex-end;
     gap: 10px;
     border: 1px solid var(--border);
     border-radius: 5px;
     padding: 0px 0px 15px 15px;
     flex-wrap: wrap;
-    margin-left: auto;
+    float: right;
+    margin-top: 20px;
+}
+.tablebox{
+    float: right;
 }
 .group1{
     display: flex;
