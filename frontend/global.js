@@ -25,4 +25,15 @@ function redirecionamento() {
         window.location.href = '../login/index.html';
     });
 }
+class MyCustomElement extends HTMLElement{
+    constuctor(){
+        super()
+    }
+    connectedCallback(){
+        const template = document.createElement("menu")
+        template.innerHTML = `
+        `
+        this.appendChild(template)
+}
 redirecionamento()
+customElements.define("side-barra", MyCustomElement)
