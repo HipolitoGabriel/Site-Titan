@@ -1,4 +1,4 @@
-const URL_BASE = "https://6a7f09823183f5fd884ac189.mockapi.io"
+const URL_BASE = "https://6a871e5a70fbbd308f98bace.mockapi.io"
 const btn_get = document.querySelector("#btnget")
 const btn_post = document.querySelector("#btnpost")
 const nome = document.querySelector("#name")
@@ -17,7 +17,7 @@ const table = document.querySelector("#body_infos")
 btn_post.addEventListener("click", postDados)
 async function getDados() {
     try{
-        const response = await fetch(`${URL_BASE}/Usuarios`)
+        const response = await fetch(`${URL_BASE}/titan`)
         
         if (!response.ok) {
             throw new Error(`Erro na requisição: ${response.status}`);
@@ -25,6 +25,7 @@ async function getDados() {
         const data = await response.json()
         console.log(JSON.stringify(data))
         updata(data)
+        updata()
     }
     catch (error) {
         console.error(error);
@@ -81,4 +82,12 @@ function updata(data){
     })
     quant.innerHTML = `<strong><p>Quantidade de usuários: <span style="color: #d4a359;">${Usuarios.length}</span></p></strong>`
 }
-getDados()
+// em desenvolvimento
+// async function edit_senha(id){
+//     try{
+//         const response = await fetch(`${URL_BASE}/titan/{id}`, {
+//             method: "PUT"
+//         })
+//     }
+// }
+// getDados()
