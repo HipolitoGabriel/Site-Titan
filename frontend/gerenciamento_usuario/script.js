@@ -1,5 +1,6 @@
-const URL_BASE = "https://6a871e5a70fbbd308f98bace.mockapi.io"
-const btn_get = document.querySelector("#btnget")
+const URL_BASE = "http://localhost:3000"
+
+// Seletores DOM
 const btn_post = document.querySelector("#btnpost")
 const nome = document.querySelector("#name")
 const senha = document.querySelector("#senha")
@@ -7,87 +8,117 @@ const status = document.querySelector("#status")
 const cpf = document.querySelector("#cpf")
 const adm = document.querySelector("#admin")
 const quant = document.querySelector("#textbox")
-const id_user = document.querySelector("#id_user")
-const nome_user = document.querySelector("#nome_user")
-const cpf_user = document.querySelector("#cpf_user")
-const status_user = document.querySelector("#status_user")
-const mod_user = document.querySelector("#mod_user")
-const table = document.querySelector("#body_infos")
+const tableBody = document.querySelector("#body_infos")
 
 btn_post.addEventListener("click", postDados)
+
 async function getDados() {
-    try{
-        const response = await fetch(`${URL_BASE}/titan`)
+    try {
+        const response = await fetch(`${URL_BASE}/usuarios`)
         
         if (!response.ok) {
             throw new Error(`Erro na requisição: ${response.status}`);
         }
+        
         const data = await response.json()
-        console.log(JSON.stringify(data))
-        updata(data)
-        updata()
+        updata(data) // Chamada única enviando os dados da requisição
+    } catch (error) {
+        console.error("Erro ao carregar usuários:", error);
     }
-    catch (error) {
-        console.error(error);
 }
-}
-async function postDados(event){
+
+async function postDados(event) {
     event.preventDefault()
-    const nomeValue = nome.value
-    const senhaValue = senha.value
-    const statusValue = status.checked
-    const cpfValue = cpf.value
-    const admValue = adm.checked
-    try{
-        const response = await fetch(`${URL_BASE}/Usuarios`, {
+    
+    try {
+        const response = await fetch(`${URL_BASE}/usuarios`, {
             method: "POST",
-            body: JSON.stringify({
-                nome: nomeValue,
-                senha: senhaValue,
-                status: statusValue,
-                cpf: cpfValue,
-                administrador: admValue,
-            }),
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+            body: JSON.stringify({
+                nome: nome.value,
+                senha: senha.value,
+                status: status.checked,
+                cpf: cpf.value,
+                administrador: adm.checked,
+            })
         })
-    }catch(error){
-        console.error(error)
+
+        if (!response.ok) {
+            throw new Error(`Erro ao cadastrar: ${response.status}`);
+        }
+
+        // Limpa o formulário apenas se a requisição for bem-sucedida
+        nome.value = ""
+        senha.value = ""
+        status.checked = false
+        cpf.value = ""
+        adm.checked = false
+
+        await getDados()
+    } catch (error) {
+        console.error("Erro no envio dos dados:", error)
     }
-    getDados()
-    nome.value = ""
-    senha.value = ""
-    status.checked = false
-    cpf.value = ""
-    adm.checked = false
 }
-function updata(data){
-    body_infos.innerHTML = ""
-    Usuarios = data
-    Usuarios.forEach((usuario) => {
-    const dadosHTML = `<tr>
+
+function updata(usuarios = []) {
+    tableBody.innerHTML = ""
+
+    usuarios.forEach((usuario) => {
+        const tr = document.createElement("tr")
+        
+        tr.innerHTML = `
             <td>${usuario.id}</td>
             <td>${usuario.nome}</td>
             <td>${usuario.cpf}</td>
-            <td><!-- From Uiverse.io by arghyaBiswasDev --> 
+            <td>
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" ${usuario.status ? "checked" : ""}>
                     <span class="slider"></span>
                 </label>
             </td>
-            <td><button>Mudar Senha</button></td>
-        </tr>`;
-    body_infos.innerHTML += dadosHTML;
+            <td><button class="btn-mudar-senha">Mudar Senha</button></td>
+        `;
+
+        // Evento do botão de mudar senha específico desta linha
+        const btnMudarSenha = tr.querySelector(".btn-mudar-senha")
+        btnMudarSenha.addEventListener("click", () => {
+            const novaSenha = prompt(`Digite a nova senha para ${usuario.nome}:`)
+            if (novaSenha) {
+                edit_senha(usuario.id, novaSenha)
+            }
+        })
+
+        tableBody.appendChild(tr)
     })
-    quant.innerHTML = `<strong><p>Quantidade de usuários: <span style="color: #d4a359;">${Usuarios.length}</span></p></strong>`
+
+    quant.innerHTML = `<strong><p>Quantidade de usuários: <span style="color: #d4a359;">${usuarios.length}</span></p></strong>`
 }
-// em desenvolvimento
-// async function edit_senha(id){
-//     try{
-//         const response = await fetch(`${URL_BASE}/titan/{id}`, {
-//             method: "PUT"
-//         })
-//     }
-// }
-// getDados()
+
+async function edit_senha(id, nova_senha) {
+    try {
+        // Rota corrigida usando interpolação e endpoint /usuarios
+        const response = await fetch(`${URL_BASE}/usuarios/${id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                senha: nova_senha
+            })
+        })
+
+        if (!response.ok) {
+            throw new Error(`Erro ao atualizar senha: ${response.status}`);
+        }
+
+        alert("Senha atualizada com sucesso!")
+        getDados()
+    } catch (error) {
+        console.error("Erro ao editar senha:", error)
+    }
+}
+
+// Inicialização
+getDados()

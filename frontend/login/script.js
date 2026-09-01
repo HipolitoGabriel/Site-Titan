@@ -1,7 +1,7 @@
-const id = document.querySelector("#inputlogin");
+const cpf = document.querySelector("#inputlogin");
 const password = document.querySelector("#inputpassword");
 const loginButton = document.querySelector("#senddados");
-const URL_BASE = "https://6a871e5a70fbbd308f98bace.mockapi.io"
+const URL_BASE = "http://localhost:3000"
 const senhaver = document.querySelector("#senhashow")
 
 senhaver.addEventListener("click", alternarSenha);
@@ -10,7 +10,7 @@ loginButton.addEventListener("click", login)
 
 async function getDados(e) {
     try{
-        const response = await fetch(`${URL_BASE}/titan`)
+        const response = await fetch(`${URL_BASE}/usuarios`)
 
         if(!response.ok){
             throw new Error(response.status);
@@ -25,17 +25,17 @@ async function getDados(e) {
 async function login(e) {
     e.preventDefault();
 
-    const idValue = id.value;
+    const cpfValue = cpf.value;
     const passwordValue = password.value;
 
     const usuarios = await getDados()
         const usuario = usuarios.find(
-            (usuario) => usuario.id === idValue && usuario.senha === passwordValue 
+            (usuario) => usuario.cpf === cpfValue && usuario.senha === passwordValue 
         )
         if (usuario) {
             window.location.href = '../dashboard/index.html';
         }else {
-            alert("ID ou senha incorretos. Tente novamente.");
+            alert("CPF ou senha incorretos. Tente novamente.");
         }
     
 }

@@ -1,0 +1,37 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "João Silva",
+      "senha": "1",
+      "status": true,
+      "cpf": "123.456.789-00",
+      "administrador": true
+    },
+    {
+      "nome": "231",
+      "senha": "321",
+      "status": true,
+      "cpf": "321",
+      "administrador": false,
+      "id": "B97MXsHqAL4"
+    }
+  ],
+  "produtos": [
+    {
+      "id": "1",
+      "nome": "perfume",
+      "descricao": "Descrição do Produto A",
+      "preco": 10.99,
+      "quantidade": 100
+    },
+    {
+      "id": "2",
+      "nome": "xampoo",
+      "descricao": "Descrição do Produto B",
+      "preco": 19.99,
+      "quantidade": 50
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
