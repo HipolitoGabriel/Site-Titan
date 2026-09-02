@@ -19,18 +19,35 @@
   ],
   "produtos": [
     {
-      "id": "1",
-      "nome": "perfume",
-      "descricao": "Descrição do Produto A",
-      "preco": 10.99,
-      "quantidade": 100
+      "id": "nyZqDzQnags"
     },
     {
-      "id": "2",
-      "nome": "xampoo",
-      "descricao": "Descrição do Produto B",
-      "preco": 19.99,
-      "quantidade": 50
+      "nome": "perfume",
+      "descricao": "madeira",
+      "preco": 520,
+      "quantidade": 1000,
+      "id": "8WIiTTOSXSw"
+    },
+    {
+      "nome": "dsa",
+      "descricao": "dsa",
+      "preco": 0,
+      "quantidade": 123,
+      "id": "v3zWHVJpZug"
+    },
+    {
+      "nome": "",
+      "descricao": "",
+      "preco": 0,
+      "quantidade": 0,
+      "id": "CyPbE3GbtgI"
+    },
+    {
+      "nome": "",
+      "descricao": "",
+      "preco": 0,
+      "quantidade": 0,
+      "id": "oO8m9KrZ_sk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

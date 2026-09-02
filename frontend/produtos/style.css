@@ -1,3 +1,4 @@
+@import url("../global.css");
 .cardProdutos   {
     display: flex;
     flex-direction: row;
@@ -34,8 +35,26 @@ form input   {
 form button   {
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid var(--border);
     background-color: #000000;
     color: #ffffff;
     cursor: pointer;
+}
+.buttons  {
+    display: flex;
+    flex-direction: column;
+    bottom: 20px;
+    right: 20px;
+    position: fixed;
+    width: 80%;
+    gap: 5px;
+}
+.buttons button  {
+    background-color: var(--dark);
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
