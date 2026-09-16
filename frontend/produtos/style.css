@@ -58,3 +58,9 @@ form button   {
     border: none;
     border-radius: 5px;
 }
+
+.produtoSelecionado {
+    outline: 4px solid #2563eb;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.35);
+}

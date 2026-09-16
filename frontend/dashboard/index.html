@@ -1,18 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../global.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="icon" type="image/x-icon" href="..\imagens\favicon\favicon.ico">
 </head>
 <body>
+
     <side-barra></side-barra>
+
+    <main class="dashboard">
+
+        <header class="dashboard-header">
+            <div></div>
+
+            <div class="profile">
+                <div class="profile-icon">♙</div>
+                <span>Gerente</span>
+                <span class="arrow">⌄</span>
+            </div>
+        </header>
+
+        <section class="cards">
+
+            <article class="card faturamento">
+                <h2>FATURAMENTO DO DIA (R$)</h2>
+                <div class="value">1.250,00</div>
+
+                <div class="line-chart">
+                    <svg viewBox="0 0 420 100" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-opacity=".25"/>
+                                <stop offset="100%" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <path class="chart-area"
+                              d="M0 80 L42 52 L84 64 L126 43 L168 61 L210 37 L252 55 L294 23 L336 36 L378 18 L420 4 L420 100 L0 100 Z"/>
+                        <polyline class="chart-line"
+                                  points="0,80 42,52 84,64 126,43 168,61 210,37 252,55 294,23 336,36 378,18 420,4"/>
+                    </svg>
+                </div>
+            </article>
+
+            <article class="card vendas">
+                <h2>VENDAS REALIZADAS</h2>
+
+                <div class="sales-content">
+                    <div class="donut">
+                        <div class="donut-hole"></div>
+                    </div>
+                    <strong>15</strong>
+                </div>
+            </article>
+
+            <article class="card vendedores">
+                <h2>TOTAL DE<br>VENDEDORES CADASTRADOS</h2>
+
+                <div class="seller-content">
+                    <strong>12</strong>
+                    <div class="people-icon">
+                        <span>●</span>
+                        <span>● ●</span>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <section class="stock-alert">
+
+            <div class="alert-header">
+                <div class="alert-title">
+                    <span class="warning">△</span>
+                    <h2>ALERTAS DE ESTOQUE BAIXO</h2>
+                </div>
+            </div>
+
+            <div class="table">
+
+                <div class="table-row table-head">
+                    <span>Produto</span>
+                    <span>Estoque Atual</span>
+                    <span>Ação</span>
+                </div>
+
+                <div class="table-row">
+                    <span>Legging Basic Preta P</span>
+                    <span>3 unidades</span>
+                    <button onclick="window.location.href='../produtos/index.html?id=produto001'">
+                        Ver Produto
+                    </button>
+                </div>
+
+                <div class="table-row">
+                    <span>Top Fitness Impacto Médio M</span>
+                    <span>2 unidades</span>
+                    <button onclick="window.location.href='../produtos/index.html?id=produto002'">
+                        Ver Produto
+                    </button>
+                </div>
+
+                <div class="table-row">
+                    <span>Camiseta Dry Fit Masculina G</span>
+                    <span>1 unidade</span>
+                    <button onclick="window.location.href='../produtos/index.html?id=produto003'">
+                        Ver Produto
+                    </button>
+                </div>
+
+                <div class="table-row">
+                    <span>Short Training Masculino P</span>
+                    <span>2 unidades</span>
+                    <button onclick="window.location.href='../produtos/index.html?id=produto004'">
+                        Ver Produto
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
     <script src="../global.js"></script>
 </body>
 </html>

@@ -18,37 +18,38 @@
     }
   ],
   "produtos": [
+
     {
-      "id": "nyZqDzQnags"
+      "nome": "Legging Basic Preta P",
+      "descricao": "Legging fitness preta",
+      "preco": 89.90,
+      "quantidade": 3,
+      "id": "produto001"
     },
     {
-      "nome": "perfume",
-      "descricao": "madeira",
-      "preco": 520,
-      "quantidade": 1000,
-      "id": "8WIiTTOSXSw"
+      "nome": "Top Fitness Impacto Médio M",
+      "descricao": "Top para treino",
+      "preco": 69.90,
+      "quantidade": 2,
+      "id": "produto002"
     },
     {
-      "nome": "dsa",
-      "descricao": "dsa",
-      "preco": 0,
-      "quantidade": 123,
-      "id": "v3zWHVJpZug"
+      "nome": "Camiseta Dry Fit Masculina G",
+      "descricao": "Camiseta esportiva",
+      "preco": 79.90,
+      "quantidade": 1,
+      "id": "produto003"
     },
     {
-      "nome": "",
-      "descricao": "",
-      "preco": 0,
-      "quantidade": 0,
-      "id": "CyPbE3GbtgI"
-    },
-    {
-      "nome": "",
-      "descricao": "",
-      "preco": 0,
-      "quantidade": 0,
-      "id": "oO8m9KrZ_sk"
+      "nome": "Short Training Masculino P",
+      "descricao": "Short para treinamento",
+      "preco": 74.90,
+      "quantidade": 2,
+      "id": "produto004"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
+
 }
+
+
