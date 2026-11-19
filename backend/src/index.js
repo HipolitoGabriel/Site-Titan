@@ -11,7 +11,8 @@ app.use(express.json());
 // Dados em memória no backend/src/index.js
 let usuarios = [
   { id: 1, nome: "Gabriel Hipolito", cpf: "12345678900", senha: "123", status: true, administrador: true },
-  { id: 2, nome: "Vendedor Teste", cpf: "98765432100", senha: "123", status: true, administrador: false }
+  { id: 2, nome: "Vithor", cpf: "1", senha: "a", status: true, administrador: true },
+  { id: 3, nome: "Vendedor Teste", cpf: "98765432100", senha: "123", status: true, administrador: false }
 ];
 
 let produtos = [

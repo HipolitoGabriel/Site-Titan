@@ -16,21 +16,13 @@ export default function Login() {
       const usuarios = response.data;
 
       const usuarioValido = usuarios.find(
-        (u) => u.cpf === cpf && u.senha === senha && u.status === true
+        (u) => u.cpf === cpf && u.senha === senha
       );
 
       if (usuarioValido) {
-        // Salva a sessão no navegador
-        localStorage.setItem('usuario', JSON.stringify(usuarioValido));
-
-        // Redireciona: Admins vão para Dashboard, Funcionários direto para Vendas
-        if (usuarioValido.administrador) {
-          navigate('/dashboard');
-        } else {
-          navigate('/vendas');
-        }
+        navigate('/dashboard');
       } else {
-        alert('CPF, senha incorretos ou usuário inativo.');
+        alert('CPF ou senha incorretos. Tente novamente.');
       }
     } catch (error) {
       console.error('Erro ao efetuar login:', error);
@@ -41,7 +33,7 @@ export default function Login() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', backgroundColor: '#f2f2f2' }}>
       <div style={{ backgroundColor: '#fff', padding: '40px', borderRadius: '8px', border: '1px solid #ccc', width: '100%', maxWidth: '450px', textAlign: 'center' }}>
-        <h1>TITAN CONTROL</h1>
+        <h1 style={{ marginBottom: '10px' }}>TITAN CONTROL</h1>
         <h3 style={{ color: 'var(--gold)', fontSize: '14px', marginBottom: '30px' }}>
           FORÇA NA GESTÃO, AGILIDADE NAS VENDAS
         </h3>
@@ -77,6 +69,9 @@ export default function Login() {
           </button>
         </form>
       </div>
+      <p style={{ marginTop: '20px', fontSize: '12px', color: '#666' }}>
+        Suporte do administrador: contato@titanperformance.com
+      </p>
     </div>
   );
 }

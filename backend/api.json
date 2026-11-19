@@ -9,6 +9,14 @@
       "administrador": true
     },
     {
+      "id": "2",
+      "nome": "Vithor",
+      "senha": "a",
+      "status": true,
+      "cpf": "1",
+      "administrador": true
+    },
+    {
       "nome": "231",
       "senha": "321",
       "status": true,
