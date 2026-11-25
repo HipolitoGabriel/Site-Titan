@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Package, ShoppingCart, Users, Settings, LogOut } from 'lucide-react';
+import { LayoutDashboard, Package, ClipboardList, ShoppingCart, Users, Settings, LogOut } from 'lucide-react';
 
 export default function Sidebar() {
   const navigate = useNavigate();
@@ -23,32 +23,37 @@ export default function Sidebar() {
         </div>
 
         <nav className="sidebar-nav">
-          {/* Opções visíveis APENAS para Administradores */}
+          {/* Apenas Admin */}
           {ehAdmin && (
             <NavLink to="/dashboard" className={({ isActive }) => isActive ? "nav-btn active" : "nav-btn"}>
               <LayoutDashboard size={20} /> Dashboard
             </NavLink>
           )}
 
-          {/* Opção visível para TODOS (Vendas/PDV) */}
+          {/* Todos (Admin e Funcionário) */}
           <NavLink to="/vendas" className={({ isActive }) => isActive ? "nav-btn active" : "nav-btn"}>
             <ShoppingCart size={20} /> Vendas
           </NavLink>
 
-          {/* Opções visíveis APENAS para Administradores */}
+          <NavLink to="/produtos" className={({ isActive }) => isActive ? "nav-btn active" : "nav-btn"}>
+            <Package size={20} /> Produtos
+          </NavLink>
+
+          {/* Apenas Admin */}
           {ehAdmin && (
             <>
-              <NavLink to="/produtos" className={({ isActive }) => isActive ? "nav-btn active" : "nav-btn"}>
-                <Package size={20} /> Produtos
+              <NavLink to="/estoque" className={({ isActive }) => isActive ? "nav-btn active" : "nav-btn"}>
+                <ClipboardList size={20} /> Estoque
               </NavLink>
               <NavLink to="/usuarios" className={({ isActive }) => isActive ? "nav-btn active" : "nav-btn"}>
                 <Users size={20} /> Gestão de Usuários
               </NavLink>
-              <NavLink to="/configuracoes" className={({ isActive }) => isActive ? "nav-btn active" : "nav-btn"}>
-                <Settings size={20} /> Configurações
-              </NavLink>
             </>
           )}
+
+          <NavLink to="/configuracoes" className={({ isActive }) => isActive ? "nav-btn active" : "nav-btn"}>
+            <Settings size={20} /> Configurações
+          </NavLink>
         </nav>
       </div>
 
@@ -57,4 +62,4 @@ export default function Sidebar() {
       </button>
     </aside>
   );
-};
+}

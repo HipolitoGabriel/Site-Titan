@@ -4,10 +4,10 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Usuarios from './pages/Usuarios';
 import Produtos from './pages/Produtos';
+import Estoque from './pages/Estoque';
 import Vendas from './pages/Vendas';
 import Configuracoes from './pages/Configuracoes';
 
-// Componente para rotas privadas
 function RotaPrivada({ children, apenasAdmin = false }) {
   const usuario = JSON.parse(localStorage.getItem('usuario') || 'null');
 
@@ -30,14 +30,14 @@ export default function App() {
         <Route path="/login" element={<Login />} />
 
         {/* Rotas Protegidas - Apenas Admin */}
-        <Route path="/configuracoes" element={
-        <RotaPrivada>
-            <Configuracoes />
-          </RotaPrivada>
-        } />
         <Route path="/dashboard" element={
           <RotaPrivada apenasAdmin={true}>
             <Dashboard />
+          </RotaPrivada>
+        } />
+        <Route path="/estoque" element={
+          <RotaPrivada apenasAdmin={true}>
+            <Estoque />
           </RotaPrivada>
         } />
         <Route path="/usuarios" element={
@@ -45,16 +45,21 @@ export default function App() {
             <Usuarios />
           </RotaPrivada>
         } />
-        <Route path="/produtos" element={
-          <RotaPrivada apenasAdmin={true}>
-            <Produtos />
-          </RotaPrivada>
-        } />
 
-        {/* Rota Protegida - Todos os colaboradores logados */}
+        {/* Rotas Protegidas - Admin e Funcionários */}
         <Route path="/vendas" element={
           <RotaPrivada>
             <Vendas />
+          </RotaPrivada>
+        } />
+        <Route path="/produtos" element={
+          <RotaPrivada>
+            <Produtos />
+          </RotaPrivada>
+        } />
+        <Route path="/configuracoes" element={
+          <RotaPrivada>
+            <Configuracoes />
           </RotaPrivada>
         } />
 
