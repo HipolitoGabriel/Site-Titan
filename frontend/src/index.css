@@ -1,0 +1,188 @@
+:root {
+  --border: #8f8f8f;
+  --dark: #0a0a0a;
+  --darkhover: #303133;
+  --gold: #bf9154;
+  --bg-gray: #fafafa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+  overflow-x: hidden;
+}
+
+/* Layout Geral com Sidebar */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 30px;
+  background-color: #fff;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background-color: var(--dark);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px 20px;
+  border-bottom: 1px solid #222;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 25px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover, .nav-btn.active {
+  background-color: var(--darkhover);
+  color: white;
+  border-left: 4px solid var(--gold);
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 25px;
+  background: transparent;
+  border: none;
+  color: #e63946;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Estilos de Formulários e Tabelas */
+.form-container {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  background: var(--bg-gray);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  align-items: flex-end;
+}
+
+input[type="text"], input[type="password"], input[type="number"] {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  width: 100%;
+}
+
+button.btn-primary {
+  background-color: var(--dark);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.btn-primary:hover {
+  background-color: var(--darkhover);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border: 1px solid var(--border);
+}
+
+th, td {
+  padding: 12px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background-color: var(--bg-gray);
+}
+
+/* Switch Toggle Customizado */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--gold);
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
